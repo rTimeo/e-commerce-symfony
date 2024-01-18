@@ -1,1 +1,1 @@
-# theSuit-symfony
+# e-commerce-symfony
