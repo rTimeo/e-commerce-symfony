@@ -30,7 +30,16 @@ class RegisterController extends AbstractController
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-    
+
+
+            $existEmail = $this->entityManager->getRepository($user::class)->findOneBy(['email' => $user->getEmail()]);
+
+            
+           if($existEmail){
+             $a = 'email existe';
+           }else{
+            $a = 'compte crée';
+
             $plaintextPassword = $user->getPassword();
             $hashedPassword = $passwordHasher->hashPassword(
                 $user,
@@ -45,9 +54,13 @@ class RegisterController extends AbstractController
            
             // Traitement du nouvel utilisateur (redirection, message flash, etc.)
         }
+           }
+
+           
 
         return $this->render('register/index.html.twig', [
             'form' => $form->createView(),
+            'a' => $a,
         ]);
     }
 }
