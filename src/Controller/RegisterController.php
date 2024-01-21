@@ -26,7 +26,7 @@ class RegisterController extends AbstractController
         
 
         $form = $this->createForm(RegisterType::class, $user);
-
+$a = "";
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -35,6 +35,7 @@ class RegisterController extends AbstractController
             $existEmail = $this->entityManager->getRepository($user::class)->findOneBy(['email' => $user->getEmail()]);
 
             
+
            if($existEmail){
              $a = 'email existe';
            }else{

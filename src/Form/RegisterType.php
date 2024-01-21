@@ -28,10 +28,6 @@ class RegisterType extends AbstractType
                         'minMessage' => 'Le prénom doit avoir au moins {{ limit }} caractères',
                         'maxMessage' => 'Le prénom ne peut pas avoir plus de {{ limit }} caractères',
                     ]),
-                    new Regex([
-                        'pattern' => '/^[^\d\W]+$/',
-                        'message' => 'Le prénom ne peut pas contenir de chiffres ni de caractères spéciaux',
-                    ]),
                 ],
 
                 'attr' => [
