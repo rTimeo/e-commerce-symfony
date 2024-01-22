@@ -20,40 +20,43 @@ class RegisterType extends AbstractType
     {
         $builder
             ->add('firstname', TextType::class, [
-                'label' => 'Votre prénom',
+                'label' => false,
                 'constraints' => [
                     new Length([
                         'min' => 2,
                         'max' => 30,
-                        'minMessage' => 'Le prénom doit avoir au moins {{ limit }} caractères',
-                        'maxMessage' => 'Le prénom ne peut pas avoir plus de {{ limit }} caractères',
+    
                     ]),
                 ],
 
                 'attr' => [
-                    'placeholder' => 'Merci de saisir votre prénom'
+                    'placeholder' => 'Prénom'
                 ]
             ])
             ->add('lastname', TextType::class, [
-                'label' => 'Votre Nom',
+                'label' => false,
                 'attr' => [
-                    'placeholder' => 'Merci de saisir votre prénom'
+                    'placeholder' => 'Nom'
                 ]
             ])
 
             ->add('email', EmailType::class,[
-                'label' => 'Votre email',
+                'label' => false,
                 'attr' => [
-                    'placeholder' => 'Merci de saisir votre adresse Email'
+                    'placeholder' => 'Adresse e-mail'
                 ]
             ])
             ->add('password', RepeatedType::class,[
                 'type' => PasswordType::class,
                 'invalid_message' => 'Les mot de passe et la confirmation doivent etre indentique.',
                 'required' => true,
-                'first_options' => ['label' => 'Mot de passe'],
+                'first_options' => ['label' => false,'attr' => [
+                    'placeholder' => 'Mot de passe'
+                ]],
                 'second_options' => [
-                    'label' => 'Confirmer le mot de passe',
+                    'label' => false,'attr' => [
+                        'placeholder' => 'Répéter le mot de passe'
+                    ]
                 ],
             ])
 
