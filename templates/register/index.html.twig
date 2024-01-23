@@ -1,8 +1,66 @@
 {% extends 'base.html.twig' %}
-{% block title %} name - inscription {% endblock %}
+
+{% block javascript %}        
+<script src="{{ asset('assets/js/script.js') }} " defer></script>
+{% endblock %}
 
 {% block content %}
-<h1>inscription</h1>
+<div class="register-container">
+<div>
 {{ a }}
-{{ form(form) }}
+
+
+    <h1>S'inscrire</h1>
+    
+ 
+
+        {{ form_start(form) }}
+
+            
+            <div> 
+                {{form_widget(form.firstname, { 'attr': {'class': 'firstname'} })}}
+                <p class='input-errors'>Le prénom doit avoir minimum 2 caractères</p>
+            </div>
+            <div> 
+                {{form_widget(form.lastname)}}
+                <p class='input-errors'>Le nom doit avoir minimum 2 caractères</p>
+            </div>
+            <div>
+                {{form_row(form.email)}}
+                <p class='input-errors'>E-mail non valide</p>
+            </div>
+            <div>
+                {{form_row(form.password.first)}}
+                <ul class="errors-list-password">
+                    <li>
+                        <span>Au moins 8 caractères</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="PasswordRequirements__cross___10XOh"><path id="Cross_svg__cross-a" d="M13.414 12l3.293 3.293a1 1 0 01-1.414 1.414L12 13.414l-3.293 3.293a1 1 0 11-1.414-1.414L10.586 12 7.293 8.707a1 1 0 011.414-1.414L12 10.586l3.293-3.293a1 1 0 011.414 1.414L13.414 12z"></path></svg>
+                    </li>
+                    <li>
+                        <span>Au moins 1 lettre</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="PasswordRequirements__cross___10XOh"><path id="Cross_svg__cross-a" d="M13.414 12l3.293 3.293a1 1 0 01-1.414 1.414L12 13.414l-3.293 3.293a1 1 0 11-1.414-1.414L10.586 12 7.293 8.707a1 1 0 011.414-1.414L12 10.586l3.293-3.293a1 1 0 011.414 1.414L13.414 12z"></path></svg>
+                    </li>
+                    <li>
+                        <span>Au moins 1 chiffre</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="PasswordRequirements__cross___10XOh"><path id="Cross_svg__cross-a" d="M13.414 12l3.293 3.293a1 1 0 01-1.414 1.414L12 13.414l-3.293 3.293a1 1 0 11-1.414-1.414L10.586 12 7.293 8.707a1 1 0 011.414-1.414L12 10.586l3.293-3.293a1 1 0 011.414 1.414L13.414 12z"></path></svg>
+                    </li>
+                    <li>
+                        <span>Au moins 1 symbole tel que `: ~ ! @ # &#41;;</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="PasswordRequirements__cross___10XOh"><path id="Cross_svg__cross-a" d="M13.414 12l3.293 3.293a1 1 0 01-1.414 1.414L12 13.414l-3.293 3.293a1 1 0 11-1.414-1.414L10.586 12 7.293 8.707a1 1 0 011.414-1.414L12 10.586l3.293-3.293a1 1 0 011.414 1.414L13.414 12z"></path></svg>
+                    </li>   
+                </ul>
+            <div>
+                {{form_row(form.password.second)}}
+                <p class='input-errors'>Les mots de passe doivent être identiques</p>
+                
+            </div>
+
+
+        {{ form_end(form) }}
+
+</div>
+</div>
+
 {% endblock %}
+
+{% block footer %}{% endblock %}
