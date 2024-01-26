@@ -1,0 +1,110 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  font-size: 10px;
+  overflow-x: hidden; /* Pour cacher la barre de défilement horizontale */
+}
+
+.header {
+  width: 100vw;
+}
+.header .f-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+}
+.header .f-header h1 a {
+  font-size: 2.5rem;
+  text-transform: capitalize;
+  font-weight: 300;
+  color: black;
+}
+.header .f-header div {
+  max-width: 40%;
+  min-width: 30%;
+  height: 34px;
+  padding: 0px 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+.header .f-header div input {
+  border: none;
+  outline: none;
+  font-size: 1.4rem;
+}
+.header .f-header div input[type=search]::-webkit-search-cancel-button {
+  display: none;
+}
+.header .f-header div svg {
+  height: 20px;
+  width: 20px;
+  margin: 0 5px;
+  vertical-align: middle;
+}
+.header .f-header ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.header .f-header ul li {
+  padding: 8px 16px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+.header .f-header ul li a {
+  font-size: 1.4rem;
+  color: black;
+}
+.header .f-header ul li:nth-child(2) {
+  background-color: rgb(0, 0, 0);
+}
+.header .f-header ul li:nth-child(2) a {
+  color: white;
+}
+.header .nav-category {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.header .nav-category ul {
+  display: flex;
+  justify-content: center;
+}
+.header .nav-category ul li {
+  padding: 10px 20px;
+  font-size: 1.4rem;
+  font-weight: 400px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.header .nav-category ul li:hover {
+  background-color: grey;
+}
+
+.home-content {
+  width: 100vw;
+  margin-top: 120px;
+}
+.home-content div:nth-child(1) {
+  max-width: 1000px;
+  margin: 0 auto 120px auto;
+}
+.home-content div:nth-child(1) p {
+  font-size: 3rem;
+  font-weight: 300;
+}
+.home-content img {
+  width: 100vw;
+  height: 700px;
+  object-fit: cover;
+}
+
+/*# sourceMappingURL=style.css.map */
