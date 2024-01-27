@@ -137,9 +137,10 @@
 }
 .register-content .container form ul {
   padding: 10px 10px 0 10px;
-  border: 1px solid black;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   margin-bottom: 4px;
-  margin-top: 4px;
+  width: 98%;
+  margin: 10px auto 0 auto;
 }
 .register-content .container form ul.errors-list-password {
   display: none;

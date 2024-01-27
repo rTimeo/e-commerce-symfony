@@ -19,12 +19,18 @@ function configurerGestionnaireChamp(inputId, infoDivClass ) {
 
   inputElement.addEventListener('input', function () {
     if (inputElement.value.length > 1) {
+      inputElement.classList.remove('error');
       inputElement.clickedOnce = false;
       infoDiv.classList.add(infoDivClass);
+      inputElement.classList.remove('error');
+
       inputElement.style.borderColor = "black";
     } else {
+      inputElement.classList.add('error');
+
       infoDiv.classList.remove(infoDivClass);
       inputElement.style.borderColor = "red";
+      inputElement.classList.add('error');
 
 
     }
@@ -55,6 +61,8 @@ function emailc(inputId, infoDivClass) {
     if (event.target !== inputElement) {
       if (inputElement.clickedOnce) {
         infoDiv.classList.remove(infoDivClass);
+        inputElement.style.borderColor = "red";
+
       }
     }
   });
@@ -72,8 +80,12 @@ function emailc(inputId, infoDivClass) {
     if (regex.test(inputValue)) {
       inputElement.clickedOnce = false;
       infoDiv.classList.add(infoDivClass);
+      inputElement.style.borderColor = "black";
+
     } else {
       infoDiv.classList.remove(infoDivClass);
+      inputElement.style.borderColor = "red";
+
     }
   });
 }
@@ -110,7 +122,22 @@ document.addEventListener('DOMContentLoaded', function () {
   var fourLi = registerContent.children[3];
 
 
+ // Gérer les clics en dehors de l'input
+ document.addEventListener('click', function (event) {
+  if (event.target !== inputElement) {
+    // Afficher la div si l'input a été cliqué au moins une fois
+    if (inputElement.clickedOnce) {
+      infoDiv.classList.remove("errors-list-password");
+      inputElement.style.borderColor = "red";
 
+    }
+  }
+});
+
+// Gérer les clics sur l'input
+inputElement.addEventListener('click', function () {
+  inputElement.clickedOnce = true;
+});
 
   // Gérer le changement dans l'input
   inputElement.addEventListener('input', function () {
@@ -167,6 +194,14 @@ document.addEventListener('DOMContentLoaded', function () {
       fourSSvg.style.display ="block";
   }
 
+  if(/[~!@#:]/.test(inputElement.value) && /\d/.test(inputElement.value) &&inputElement.value.length > 7 && /[a-zA-Z]/.test(inputElement.value) ){
+    inputElement.style.borderColor = "black";
+
+  }else{
+    inputElement.style.borderColor = "red";
+
+  }
+
   });
 });
 
@@ -196,3 +231,32 @@ else{
 })
   
   });
+
+
+
+
+  document.addEventListener('DOMContentLoaded', function () {
+    // Récupérer les éléments DOM
+    var formulaire = document.getElementById('form');
+    var champs = document.querySelectorAll('#form input');
+
+    var boutonRecherche = document.getElementById('register_submit');
+    
+    formulaire.addEventListener('input', function() {
+      var erreurTrouvee = false;
+
+      for (var i = 0; i < champs.length; i++) {
+          if (champs[i].classList.contains('error')) {
+              erreurTrouvee = true;
+              break;
+          }
+      }
+
+      if (erreurTrouvee) {
+          boutonRecherche.setAttribute('disabled', 'disabled');
+      } else {
+          boutonRecherche.removeAttribute('disabled');
+      }
+  });
+   
+});
