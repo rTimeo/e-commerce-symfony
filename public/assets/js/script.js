@@ -19,7 +19,11 @@ function configurerGestionnaireChamp(inputId, infoDivClass ) {
 
   inputElement.addEventListener('input', function () {
     if (inputElement.value.length > 1) {
-      inputElement.classList.remove('error');
+
+
+
+      
+      
       inputElement.clickedOnce = false;
       infoDiv.classList.add(infoDivClass);
       inputElement.classList.remove('error');
@@ -81,10 +85,12 @@ function emailc(inputId, infoDivClass) {
       inputElement.clickedOnce = false;
       infoDiv.classList.add(infoDivClass);
       inputElement.style.borderColor = "black";
+      inputElement.classList.remove('error');
 
     } else {
       infoDiv.classList.remove(infoDivClass);
       inputElement.style.borderColor = "red";
+      inputElement.classList.add('error');
 
     }
   });
@@ -141,6 +147,7 @@ inputElement.addEventListener('click', function () {
 
   // Gérer le changement dans l'input
   inputElement.addEventListener('input', function () {
+    var pwdSec = document.querySelector(".pwd-sec");
     // Masquer la div si l'input a au moins un caractère
     infoDiv.classList.remove("errors-list-password");
 
@@ -150,11 +157,19 @@ inputElement.addEventListener('click', function () {
       firstFSvg.style.fill ='black'
       firstFSvg.style.display ='block'
       firstSSvg.style.display ="none";
+      inputElement.classList.remove('error');
+      pwdSec.style.display = "block";
+
+
     }else{
       firstLi.style.color = 'red';
       firstLi.style.fill ='red'
       firstFSvg.style.display ='none'
       firstSSvg.style.display ="block";
+      inputElement.classList.add('error');
+      pwdSec.style.display = "none";
+
+
     }
     
     if (/[a-zA-Z]/.test(inputElement.value)) {
@@ -162,11 +177,19 @@ inputElement.addEventListener('click', function () {
       secondFSvg.style.fill ='black'
       secondFSvg.style.display ='block'
       secondSSvg.style.display ="none";
+      inputElement.classList.remove('error');
+      pwdSec.style.display = "block";
+
+
     }else{
       secondLi.style.color = 'red';
       secondLi.style.fill ='red'
       secondFSvg.style.display ='none'
       secondSSvg.style.display ="block";
+      inputElement.classList.add('error');
+      pwdSec.style.display = "none";
+
+
     }
 
       if (/\d/.test(inputElement.value)) {
@@ -175,11 +198,19 @@ inputElement.addEventListener('click', function () {
       thirdFSvg.style.fill ='black'
       thirdFSvg.style.display ='block'
       thirdSSvg.style.display ="none";
+      inputElement.classList.remove('error');
+      pwdSec.style.display = "block";
+
+
     } else {
       thirdLi.style.color = 'red';
       thirdLi.style.fill ='red'
       thirdFSvg.style.display ='none'
       thirdSSvg.style.display ="block";
+      inputElement.classList.add('error');
+      pwdSec.style.display = "none";
+
+
     }
     
     if (/[~!@#:]/.test(inputElement.value)) {
@@ -187,11 +218,19 @@ inputElement.addEventListener('click', function () {
       fourFSvg.style.fill ='black'
       fourFSvg.style.display ='block'
       fourSSvg.style.display ="none";
+      inputElement.classList.remove('error');
+      pwdSec.style.display = "block";
+
+
   } else {
     fourLi.style.color = 'red';
     fourLi.style.fill ='red'
       fourFSvg.style.display ='none'
       fourSSvg.style.display ="block";
+      inputElement.classList.add('error');
+      pwdSec.style.display = "none";
+
+
   }
 
   if(/[~!@#:]/.test(inputElement.value) && /\d/.test(inputElement.value) &&inputElement.value.length > 7 && /[a-zA-Z]/.test(inputElement.value) ){
@@ -207,36 +246,12 @@ inputElement.addEventListener('click', function () {
 
 
 
-//display repeat password if first pwd is good
-document.addEventListener('DOMContentLoaded', function () {
-
-  // Votre condition
-  
-  var passwordInput = document.getElementById('register_password_first');
-
-  // Fonction pour gérer l'animation en fonction de la condition
-  passwordInput.addEventListener('input', function () {
-
- 
-      var pwdSec = document.querySelector(".pwd-sec");
-    // Modifiez le style en fonction de la condition
-    if (passwordInput.value.length > 7) {
-      pwdSec.style.display = "block";
-
-      }
-else{
-  pwdSec.style.display = "none";  
-}
-   
-})
-  
-  });
 
 
 
 
+/////test fonctionne mais ajouter les autre input et terminer l'apparition du mdp.
   document.addEventListener('DOMContentLoaded', function () {
-    // Récupérer les éléments DOM
     var formulaire = document.getElementById('form');
     var champs = document.querySelectorAll('#form input');
 
@@ -259,4 +274,21 @@ else{
       }
   });
    
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  var pwdFirst = document.getElementById('register_password_first');
+  var pwdSecond = document.getElementById('register_password_second');
+  pwdSecond.addEventListener('input', function() {
+    if(pwdFirst.value === pwdSecond.value){
+      pwdSecond.classList.remove('error');
+    }else{      
+
+      pwdSecond.classList.add('error');
+      }
+  });
+   
+
+ 
+ 
 });

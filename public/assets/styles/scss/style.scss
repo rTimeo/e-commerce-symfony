@@ -141,7 +141,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 70vh;
+    height: 80vh;
     .container{
 
         h1{
@@ -174,7 +174,7 @@
                 box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
                 margin-bottom: 4px;
                 width: 98%;
-                margin: 10px auto 0 auto;
+                margin: 10px auto 10px auto;
                 &.errors-list-password{
                     display: none;
                 }
