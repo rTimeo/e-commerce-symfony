@@ -1,11 +1,14 @@
-function configurerGestionnaireChamp(inputId, infoDivClass) {
+function configurerGestionnaireChamp(inputId, infoDivClass ) {
   var inputElement = document.getElementById(inputId);
   var infoDiv = document.querySelector('.' + infoDivClass);
-
+  if (!inputElement || !infoDiv) {
+    return; // Quitter la fonction si les éléments ne sont pas présents
+  }
   document.addEventListener('click', function (event) {
     if (event.target !== inputElement) {
       if (inputElement.clickedOnce) {
         infoDiv.classList.remove(infoDivClass);
+        inputElement.style.borderColor = "red";
       }
     }
   });
@@ -18,14 +21,19 @@ function configurerGestionnaireChamp(inputId, infoDivClass) {
     if (inputElement.value.length > 1) {
       inputElement.clickedOnce = false;
       infoDiv.classList.add(infoDivClass);
+      inputElement.style.borderColor = "black";
     } else {
       infoDiv.classList.remove(infoDivClass);
+      inputElement.style.borderColor = "red";
+
+
     }
   });
 }
 
 document.addEventListener('DOMContentLoaded', function () {
   configurerGestionnaireChamp('register_lastname', 'ln-error');
+
 });
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -38,6 +46,10 @@ document.addEventListener('DOMContentLoaded', function () {
 function emailc(inputId, infoDivClass) {
   var inputElement = document.getElementById(inputId);
   var infoDiv = document.querySelector('.' + infoDivClass);
+
+  if (!inputElement || !infoDiv) {
+    return; // Quitter la fonction si les éléments ne sont pas présents
+  }
 
   document.addEventListener('click', function (event) {
     if (event.target !== inputElement) {
@@ -65,18 +77,20 @@ function emailc(inputId, infoDivClass) {
     }
   });
 }
-
+emailc('register_email', 'e-error')
 //password
 
 
 document.addEventListener('DOMContentLoaded', function () {
   var inputElement = document.getElementById('register_password_first');
   var infoDiv = document.querySelector('.errors-list-password');
+  var a = document.querySelector(".aaa");
 
-
+  if (!inputElement || !infoDiv) {
+    return; // Quitter la fonction si les éléments ne sont pas présents
+  }
 
   var registerContent = document.querySelector(".register-content ul");
-
 
   var firstFSvg = document.querySelector(".first-f-svg");
   var firstSSvg = document.querySelector(".first-s-svg");
@@ -98,29 +112,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-
-
-
-  // Gérer les clics en dehors de l'input
-  document.addEventListener('click', function (event) {
-    if (event.target !== inputElement) {
-      // Afficher la div si l'input a été cliqué au moins une fois
-      if (inputElement.clickedOnce) {
-        infoDiv.classList.remove("errors-list-password");
-      }
-    }
-  });
-
-  // Gérer les clics sur l'input
-  inputElement.addEventListener('click', function () {
-    inputElement.clickedOnce = true;
-  });
-
   // Gérer le changement dans l'input
   inputElement.addEventListener('input', function () {
     // Masquer la div si l'input a au moins un caractère
+    infoDiv.classList.remove("errors-list-password");
+
     if (inputElement.value.length > 7) {
-      inputElement.clickedOnce = false;
+      
       firstLi.style.color = 'black';
       firstFSvg.style.fill ='black'
       firstFSvg.style.display ='block'
@@ -133,7 +131,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     
     if (/[a-zA-Z]/.test(inputElement.value)) {
-      inputElement.clickedOnce = false;
       secondLi.style.color = 'black';
       secondFSvg.style.fill ='black'
       secondFSvg.style.display ='block'
@@ -159,7 +156,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     
     if (/[~!@#:]/.test(inputElement.value)) {
-      inputElement.clickedOnce = false;
       fourLi.style.color = 'black';
       fourFSvg.style.fill ='black'
       fourFSvg.style.display ='block'
@@ -173,3 +169,30 @@ document.addEventListener('DOMContentLoaded', function () {
 
   });
 });
+
+
+
+//display repeat password if first pwd is good
+document.addEventListener('DOMContentLoaded', function () {
+
+  // Votre condition
+  
+  var passwordInput = document.getElementById('register_password_first');
+
+  // Fonction pour gérer l'animation en fonction de la condition
+  passwordInput.addEventListener('input', function () {
+
+ 
+      var pwdSec = document.querySelector(".pwd-sec");
+    // Modifiez le style en fonction de la condition
+    if (passwordInput.value.length > 7) {
+      pwdSec.style.display = "block";
+
+      }
+else{
+  pwdSec.style.display = "none";  
+}
+   
+})
+  
+  });

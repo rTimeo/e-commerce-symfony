@@ -28,7 +28,7 @@
 .header .f-header div {
   max-width: 40%;
   min-width: 30%;
-  height: 34px;
+  height: 36px;
   padding: 0px 5px;
   border: 1px solid black;
   border-radius: 5px;
@@ -55,37 +55,36 @@
   align-items: center;
   gap: 10px;
 }
-.header .f-header ul li {
-  padding: 8px 16px;
+.header .f-header ul a {
   border: 1px solid black;
   border-radius: 5px;
-}
-.header .f-header ul li a {
-  font-size: 1.4rem;
   color: black;
 }
-.header .f-header ul li:nth-child(2) {
-  background-color: rgb(0, 0, 0);
+.header .f-header ul a li {
+  font-size: 1.4rem;
+  padding: 9px 18px;
 }
-.header .f-header ul li:nth-child(2) a {
+.header .f-header ul a:nth-child(2) {
+  background-color: black;
   color: white;
 }
-.header .nav-category {
+
+.nav-category {
   max-width: 1000px;
   margin: 0 auto;
 }
-.header .nav-category ul {
+.nav-category ul {
   display: flex;
   justify-content: center;
 }
-.header .nav-category ul li {
+.nav-category ul li {
   padding: 10px 20px;
   font-size: 1.4rem;
   font-weight: 400px;
   text-transform: uppercase;
   cursor: pointer;
 }
-.header .nav-category ul li:hover {
+.nav-category ul li:hover {
   background-color: grey;
 }
 
@@ -127,11 +126,23 @@
 .register-content .container form .ln-error, .register-content .container form .fn-error, .register-content .container form .e-error {
   display: none;
 }
+.register-content .container form .pwd-sec {
+  display: none;
+}
+.register-content .container form #register_submit {
+  padding: 12px 0;
+  width: 100%;
+  border: none;
+  margin-top: 30px;
+}
 .register-content .container form ul {
   padding: 10px 10px 0 10px;
   border: 1px solid black;
   margin-bottom: 4px;
   margin-top: 4px;
+}
+.register-content .container form ul.errors-list-password {
+  display: none;
 }
 .register-content .container form ul li {
   color: red;
@@ -163,7 +174,7 @@
   width: 100%;
   font-size: 1.6rem;
   border: 1px solid black;
-  border-radius: 5px;
+  border-radius: 3px;
   margin-bottom: 2px;
 }
 
