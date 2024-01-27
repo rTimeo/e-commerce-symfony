@@ -152,23 +152,40 @@
 
 
             //password error
-            .errors-list-password{
+            ul{
                 padding: 10px 10px 0 10px;
                 border: 1px solid black;
                 margin-bottom: 4px;
                 margin-top: 4px;
-                
+                &.errors-list-password{
+                    
+                }
                 li{
+                    color: red;
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
                     margin-bottom: 8px;
-                    svg{
+                    div{
                         height: 10px;
                         width: 10px;
-                        fill: red;
+                        position: relative;
+                        svg{
+                            height: 10px;
+                            width: 10px;
+                            position: absolute;
+                            fill: red;
+
+                            &:nth-child(1){
+                                display: none;
+                            }
+                            
+                        }
                     }
+                    
                 }
+
+                
             }
 
 

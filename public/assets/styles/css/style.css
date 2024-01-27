@@ -127,22 +127,32 @@
 .register-content .container form .ln-error, .register-content .container form .fn-error, .register-content .container form .e-error {
   display: none;
 }
-.register-content .container form .errors-list-password {
+.register-content .container form ul {
   padding: 10px 10px 0 10px;
   border: 1px solid black;
   margin-bottom: 4px;
   margin-top: 4px;
 }
-.register-content .container form .errors-list-password li {
+.register-content .container form ul li {
+  color: red;
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 8px;
 }
-.register-content .container form .errors-list-password li svg {
+.register-content .container form ul li div {
   height: 10px;
   width: 10px;
+  position: relative;
+}
+.register-content .container form ul li div svg {
+  height: 10px;
+  width: 10px;
+  position: absolute;
   fill: red;
+}
+.register-content .container form ul li div svg:nth-child(1) {
+  display: none;
 }
 .register-content .container form div p {
   color: red;
