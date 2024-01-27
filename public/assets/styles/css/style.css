@@ -94,17 +94,67 @@
   margin-top: 120px;
 }
 .home-content div:nth-child(1) {
-  max-width: 1000px;
+  max-width: 1400px;
   margin: 0 auto 120px auto;
 }
 .home-content div:nth-child(1) p {
   font-size: 3rem;
   font-weight: 300;
+  text-align: center;
 }
 .home-content img {
   width: 100vw;
   height: 700px;
   object-fit: cover;
+}
+
+.register-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+.register-content .container h1 {
+  margin-bottom: 15px;
+  font-size: 2.5rem;
+}
+.register-content .container form {
+  display: flex;
+  flex-direction: column;
+  min-width: 400px;
+  gap: 10px;
+}
+.register-content .container form .ln-error, .register-content .container form .fn-error, .register-content .container form .e-error {
+  display: none;
+}
+.register-content .container form .errors-list-password {
+  padding: 10px 10px 0 10px;
+  border: 1px solid black;
+  margin-bottom: 4px;
+  margin-top: 4px;
+}
+.register-content .container form .errors-list-password li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.register-content .container form .errors-list-password li svg {
+  height: 10px;
+  width: 10px;
+  fill: red;
+}
+.register-content .container form div p {
+  color: red;
+}
+.register-content .container form div input {
+  background-color: white;
+  padding: 10px 0 10px 10px;
+  width: 100%;
+  font-size: 1.6rem;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-bottom: 2px;
 }
 
 /*# sourceMappingURL=style.css.map */
