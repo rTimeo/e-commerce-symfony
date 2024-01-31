@@ -1,0 +1,29 @@
+<div class="header">
+    <div class="f-header">
+        <h1><a href="/">Elegance in Suits</a></h1>
+        <div>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="SearchInput__icon___mYT5M"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.03 5.5a5.53 5.53 0 100 11.06 5.53 5.53 0 000-11.06zM3.5 11.03a7.53 7.53 0 1115.06 0 7.53 7.53 0 01-15.06 0z" fill="#232323"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M15.403 15.403a1 1 0 011.414 0l3.39 3.39a1 1 0 01-1.414 1.414l-3.39-3.39a1 1 0 010-1.414z" fill="#232323"></path></svg>        
+            <input placeholder="Recherche" type="search" name="" id="">
+        </div>
+        <ul>    
+        {% if app.user %}
+            <a class="nav-link" href="/inscription"><li>Mon compte</li></a>
+            <a class="nav-link" href="/inscription"><li>Déconnexion</li></a>
+        {% else %}
+            <a class="nav-link" href="/connexion"> <li>Se connecter</li></a>
+            <a class="nav-link" href="/inscription"> <li>S'inscrire</li></a>
+        {% endif %}
+        </ul>
+    </div>
+    <div class="nav-category">
+        <ul>
+            
+            <li><a href="/Haut">Nouvelle collection</a></li>
+            <li><a href="/Haut">Haut</a></li>
+            <li><a href="/Bas">Bas</a></li>
+            <li><a href="/costumes">costumes</a></li>
+            <li><a href="/chaussures-&-accessoires">chaussures & accessoires</a></li>
+            <li><a href="/Haut">Promotions</a></li>
+        </ul>
+    </div>
+</div>

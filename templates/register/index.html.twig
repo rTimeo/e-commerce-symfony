@@ -1,36 +1,39 @@
 {% extends 'base.html.twig' %}
 
-{% block javascript %}        
-<script src="{{ asset('assets/js/script.js') }} " defer></script>
+{% block script %}        
+    <script src="{{ asset('assets/js/register.js') }} " defer></script>
 {% endblock %}
 
 {% block content %}
 <div class="register-content">
 <div class="container">
-{{ a }}
+
 
 
     <h1>S'inscrire</h1>
+
     
- 
+    
+ <p class="email-Already-Exist">{{ emailAlreadyExist }}</p>
 
-        {{ form_start(form) }}
+        {{ form_start(form, { 'attr': {'id': 'form'} }) }}
 
+           
             
             <div> 
-                {{form_widget(form.firstname, { 'attr': {'class': 'firstname'} })}}
+                {{form_widget(form.firstname, { 'attr': {'class': 'firstname error'} })}}
                 <p class='fn-error'>Le prénom doit avoir minimum 2 caractères</p>
             </div>
             <div> 
-                {{form_widget(form.lastname)}}
+                {{form_widget(form.lastname, { 'attr': {'class': 'lastname error'} })}}
                 <p class='ln-error'>Le nom doit avoir minimum 2 caractères</p>
             </div>
             <div>
-                {{form_row(form.email)}}
+                {{form_widget(form.email, { 'attr': {'class': 'error'} })}}
                 <p class='e-error'>E-mail non valide</p>
             </div>
             <div>
-                {{form_row(form.password.first)}}
+                {{form_widget(form.password.first, { 'attr': {'class': 'error'} })}}
                 <ul class="errors-list-password">
                     <li>
                         <span>Au moins 8 caractères</span>
@@ -61,11 +64,17 @@
                         </div> 
                     </li>   
                 </ul>
-            <div>
-                {{form_row(form.password.second)}}
-                <p class='input-errors'>Les mots de passe doivent être identiques</p>
+            <div class="pwd-sec">
+                {{form_widget(form.password.second,  { 'attr': {'class': 'error'} })}}
+                <p class='password-second-error'>Les mots de passe doivent être identiques</p>
                 
             </div>
+            <div>
+             {{
+                form_widget(form.submit, {'disabled' : 'disabled'})
+            }}
+            </div>
+           
 
 
         {{ form_end(form) }}
