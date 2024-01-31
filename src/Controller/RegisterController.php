@@ -26,20 +26,20 @@ class RegisterController extends AbstractController
         
 
         $form = $this->createForm(RegisterType::class, $user);
-$a = "";
+$emailAlreadyExist = "";
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
 
 
-            $existEmail = $this->entityManager->getRepository($user::class)->findOneBy(['email' => $user->getEmail()]);
+            $emailAlreadyExist = $this->entityManager->getRepository($user::class)->findOneBy(['email' => $user->getEmail()]);
 
             
 
-           if($existEmail){
-             $a = 'email existe';
+           if($emailAlreadyExist){
+             $emailAlreadyExist = "L'email existe déja";
            }else{
-            $a = 'compte crée';
+            $emailAlreadyExist = 'compte crée';
 
             $plaintextPassword = $user->getPassword();
             $hashedPassword = $passwordHasher->hashPassword(
@@ -61,7 +61,7 @@ $a = "";
 
         return $this->render('register/index.html.twig', [
             'form' => $form->createView(),
-            'a' => $a,
+            'emailAlreadyExist' => $emailAlreadyExist,
         ]);
     }
 }
