@@ -36,6 +36,7 @@
   align-items: center;
 }
 .header .f-header div input {
+  width: 100%;
   border: none;
   outline: none;
   font-size: 1.4rem;
@@ -77,34 +78,40 @@
   display: flex;
   justify-content: center;
 }
-.nav-category ul li {
+.nav-category ul li a {
+  color: black;
+  display: block;
+  width: 100%;
   padding: 10px 20px;
   font-size: 1.4rem;
   font-weight: 400px;
   text-transform: uppercase;
   cursor: pointer;
 }
-.nav-category ul li:hover {
-  background-color: grey;
+.nav-category ul li a:hover {
+  background-color: #cdcbcb;
 }
 
 .home-content {
   width: 100vw;
   margin-top: 120px;
 }
-.home-content div:nth-child(1) {
+.home-content header div:nth-child(1) {
   max-width: 1400px;
   margin: 0 auto 120px auto;
 }
-.home-content div:nth-child(1) p {
+.home-content header div:nth-child(1) p {
   font-size: 3rem;
   font-weight: 300;
   text-align: center;
 }
-.home-content img {
+.home-content header img {
   width: 100vw;
   height: 700px;
   object-fit: cover;
+}
+.home-content section img {
+  width: 100px;
 }
 
 .register-content {
@@ -117,23 +124,19 @@
   margin-bottom: 15px;
   font-size: 2.5rem;
 }
+.register-content .container .email-Already-Exist {
+  margin-bottom: 10px;
+  color: rgb(255, 84, 84);
+  font-size: 1.6rem;
+}
 .register-content .container form {
   display: flex;
   flex-direction: column;
   min-width: 400px;
   gap: 10px;
 }
-.register-content .container form .ln-error, .register-content .container form .fn-error, .register-content .container form .e-error {
+.register-content .container form .ln-error, .register-content .container form .fn-error, .register-content .container form .e-error, .register-content .container form .pwd-sec, .register-content .container form .password-second-error {
   display: none;
-}
-.register-content .container form .pwd-sec {
-  display: none;
-}
-.register-content .container form #register_submit {
-  padding: 12px 0;
-  width: 100%;
-  border: none;
-  margin-top: 30px;
 }
 .register-content .container form ul {
   padding: 10px 10px 0 10px;
@@ -177,6 +180,83 @@
   border: 1px solid black;
   border-radius: 3px;
   margin-bottom: 2px;
+}
+.register-content .container form #register_submit {
+  padding: 12px 0;
+  width: 100%;
+  border: none;
+  margin-top: 30px;
+}
+
+.login-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+.login-content .container h1 {
+  margin-bottom: 13px;
+  font-size: 2.5rem;
+}
+.login-content .container p {
+  color: red;
+}
+.login-content .container form {
+  display: flex;
+  flex-direction: column;
+  min-width: 400px;
+  gap: 10px;
+}
+.login-content .container form input {
+  background-color: white;
+  padding: 10px 0 10px 10px;
+  width: 100%;
+  font-size: 1.6rem;
+  border: 1px solid black;
+  border-radius: 3px;
+  margin-bottom: 2px;
+}
+.login-content .container form button {
+  padding: 12px 0;
+  width: 100%;
+  border: none;
+  margin-top: 30px;
+}
+
+.category-content {
+  padding-top: 10px;
+}
+.category-content .container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+.category-content .container .filtres {
+  background-color: red;
+  width: 100px;
+  height: 100px;
+}
+.category-content .container .products ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.category-content .container .products ul li {
+  display: flex;
+  flex-direction: column;
+}
+.category-content .container .products ul li img {
+  display: block;
+  object-fit: cover;
+}
+.category-content .container .products ul li span {
+  display: block;
+  background-color: #b97070;
+}
+.category-content .container .products ul li button {
+  background-color: #222222;
+  border: none;
+  color: white;
+  width: 100%;
 }
 
 /*# sourceMappingURL=style.css.map */

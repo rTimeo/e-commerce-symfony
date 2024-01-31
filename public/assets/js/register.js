@@ -4,7 +4,7 @@ function configurerGestionnaireChamp(inputId, infoDivClass ) {
   if (!inputElement || !infoDiv) {
     return; // Quitter la fonction si les éléments ne sont pas présents
   }
-  document.addEventListener('click', function (event) {
+  document.addEventListener('input', function (event) {
     if (event.target !== inputElement) {
       if (inputElement.clickedOnce) {
         infoDiv.classList.remove(infoDivClass);
@@ -13,7 +13,7 @@ function configurerGestionnaireChamp(inputId, infoDivClass ) {
     }
   });
 
-  inputElement.addEventListener('click', function () {
+  inputElement.addEventListener('input', function () {
     inputElement.clickedOnce = true;
   });
 
@@ -61,7 +61,7 @@ function emailc(inputId, infoDivClass) {
     return; // Quitter la fonction si les éléments ne sont pas présents
   }
 
-  document.addEventListener('click', function (event) {
+  document.addEventListener('input', function (event) {
     if (event.target !== inputElement) {
       if (inputElement.clickedOnce) {
         infoDiv.classList.remove(infoDivClass);
@@ -71,7 +71,7 @@ function emailc(inputId, infoDivClass) {
     }
   });
 
-  inputElement.addEventListener('click', function () {
+  inputElement.addEventListener('input', function () {
     inputElement.clickedOnce = true;
   });
 
@@ -128,10 +128,8 @@ document.addEventListener('DOMContentLoaded', function () {
   var fourLi = registerContent.children[3];
 
 
- // Gérer les clics en dehors de l'input
  document.addEventListener('click', function (event) {
   if (event.target !== inputElement) {
-    // Afficher la div si l'input a été cliqué au moins une fois
     if (inputElement.clickedOnce) {
       infoDiv.classList.remove("errors-list-password");
       inputElement.style.borderColor = "red";
@@ -168,8 +166,6 @@ inputElement.addEventListener('click', function () {
       firstSSvg.style.display ="block";
       inputElement.classList.add('error');
       pwdSec.style.display = "none";
-
-
     }
     
     if (/[a-zA-Z]/.test(inputElement.value)) {
@@ -254,7 +250,9 @@ inputElement.addEventListener('click', function () {
   document.addEventListener('DOMContentLoaded', function () {
     var formulaire = document.getElementById('form');
     var champs = document.querySelectorAll('#form input');
-
+    if (!formulaire) {
+      return; // Quitter la fonction si les éléments ne sont pas présents
+    }
     var boutonRecherche = document.getElementById('register_submit');
     
     formulaire.addEventListener('input', function() {
@@ -276,19 +274,31 @@ inputElement.addEventListener('click', function () {
    
 });
 
+
+
+
+
+
 document.addEventListener('DOMContentLoaded', function () {
+
   var pwdFirst = document.getElementById('register_password_first');
   var pwdSecond = document.getElementById('register_password_second');
-  pwdSecond.addEventListener('input', function() {
+  var a = document.querySelector('.pwd-sec p')
+
+  pwdSecond.addEventListener('input', function(){
     if(pwdFirst.value === pwdSecond.value){
       pwdSecond.classList.remove('error');
+      a.classList.add('password-second-error')
     }else{      
-
       pwdSecond.classList.add('error');
-      }
+      a.classList.remove('password-second-error')
+    }
   });
+});
+document.addEventListener('DOMContentLoaded', function () {
+  function azaz(nombre){
+    return nombre*nombre;
+  }
+  console.log(azaz(2));
    
-
- 
- 
 });

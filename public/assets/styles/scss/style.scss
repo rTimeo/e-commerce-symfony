@@ -40,7 +40,7 @@
 
 
             input{
-                
+                width: 100%;
                 border: none;
                 outline: none;
                 font-size: 1.4rem;
@@ -95,16 +95,20 @@
         ul{
             display: flex;
             justify-content: center;
-
+            
             li{
-                padding: 10px 20px;
-                font-size: 1.4rem;
-                font-weight: 400px;
-                text-transform: uppercase;
-                cursor: pointer;
-
-                &:hover{
-                    background-color: grey;
+                a{
+                    color: black;
+                    display: block;
+                    width: 100%;
+                    padding: 10px 20px;
+                    font-size: 1.4rem;
+                    font-weight: 400px;
+                    text-transform: uppercase;
+                    cursor: pointer;
+                    &:hover{
+                        background-color: #cdcbcb;
+                    }
                 }
             }
         }
@@ -115,23 +119,32 @@
 .home-content{
     width: 100vw;
     margin-top: 120px;
-    div:nth-child(1){
-        max-width: 1400px;
-        margin: 0 auto 120px auto;
-
-        p{
-            font-size: 3rem;
-            font-weight: 300;
-            text-align: center;
+    header{
+        div:nth-child(1){
+            max-width: 1400px;
+            margin: 0 auto 120px auto;
+    
+            p{
+                font-size: 3rem;
+                font-weight: 300;
+                text-align: center;
+            }
+        }
+            
+        
+            img{
+            width: 100vw;
+            height: 700px;
+            object-fit: cover;
         }
     }
-        
-    
+
+    section{
         img{
-        width: 100vw;
-        height: 700px;
-        object-fit: cover;
+            width: 100px;
+        }
     }
+    
 } 
 
 
@@ -148,26 +161,20 @@
             margin-bottom: 15px;
             font-size: 2.5rem;
         }
+        .email-Already-Exist{
+            margin-bottom: 10px;
+            color: rgb(255, 84, 84);
+            font-size: 1.6rem;
+        }
         form{
             display: flex;
             flex-direction: column;
             min-width: 400px;
             gap: 10px;
-
-            .ln-error, .fn-error, .e-error{
+            .ln-error, .fn-error, .e-error, .pwd-sec, .password-second-error{
                 display: none;
             }
-            .pwd-sec{
-                display: none;
-                
-            }
-            #register_submit{
-
-                padding: 12px 0;
-                width: 100%;
-                border: none;
-                margin-top: 30px;
-            }
+            
             //password error
             ul{
                 padding: 10px 10px 0 10px;
@@ -193,20 +200,13 @@
                             width: 10px;
                             position: absolute;
                             fill: red;
-
                             &:nth-child(1){
                                 display: none;
                             }
-                            
                         }
                     }
-                    
                 }
-
-                
             }
-
-
             div{
                 p{
                     color: red;
@@ -219,14 +219,97 @@
                     border: 1px solid black;
                     border-radius: 3px;
                     margin-bottom: 2px;
-                    
-
                 }
             }
-
+            #register_submit{
+                padding: 12px 0;
+                width: 100%;
+                border: none;
+                margin-top: 30px;
+            }
         }
-        
     }
-   
-  
+}
+
+
+//login
+.login-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+
+    .container{
+        h1{
+            margin-bottom: 13px;
+            font-size: 2.5rem;
+        }
+        p{
+            color: red;
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            min-width: 400px;
+            gap: 10px;
+            
+            input{
+                background-color: white;
+                padding: 10px 0 10px 10px;
+                width: 100%;
+                font-size: 1.6rem ;
+                border: 1px solid black;
+                border-radius: 3px;
+                margin-bottom: 2px;
+            }
+            button{
+                padding: 12px 0;
+                width: 100%;
+                border: none;
+                margin-top: 30px;
+            }
+            
+        }
+    }
+}
+
+
+//page pour chaque category
+.category-content{
+    padding-top: 10px ;
+    .container{
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        .filtres{
+            background-color: red;
+            width: 100px;
+            height: 100px;
+        }
+        .products{
+            ul{
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
+                li{
+                    display: flex;
+                    flex-direction: column;
+                    img{
+                        display: block;
+                        object-fit: cover;
+                    }
+                    span{
+                        display: block;
+                        background-color: #b97070;
+                    }
+                    button{
+                        background-color:#222222;
+                        border: none;
+                        color: white;
+                        width: 100%;
+                    }
+                    
+                }
+            }
+        }
+    }
 }
