@@ -3,3 +3,8 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+
+category_products:
+    path: /{name}
+    # the controller value has the format 'controller_class::method_name'
+    controller: 'App\Controller\ProductController::categoryProducts'
