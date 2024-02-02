@@ -39,4 +39,11 @@ class Cart
     public function remove(){
         return $this->initSession()->remove('cart');
     }
+
+    public function delete($id){
+        $cart = $this->initSession()->get('cart', []);
+        unset($cart[$id]);
+        return $this->initSession()->set('cart', $cart);
+    }
+
 }
