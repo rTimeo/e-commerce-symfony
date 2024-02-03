@@ -22,12 +22,19 @@ class CartController extends AbstractController
     {
 
         $cartComplete = [];
-        foreach($cart->get() as $id => $quantity){
-            $cartComplete[] = [
-                'product' => $this->entityManager->getRepository(Product::class)->findOneById($id),
-                'quantity' =>  $quantity
-            ];
+        
+        $cartItems = $cart->get();
+
+        if (is_array($cartItems) || is_object($cartItems)) {
+            foreach ($cartItems as $id => $quantity) {
+                $cartComplete[] = [
+                    'product' => $this->entityManager->getRepository(Product::class)->findOneById($id),
+                    'quantity' => $quantity
+                ];
+            }
         }
+    
+        
 
         return $this->render('cart/index.html.twig', [
             'cart' => $cartComplete,
@@ -58,6 +65,4 @@ class CartController extends AbstractController
         return $this->redirectToRoute(('cart'));
 
     }
-
-
 }
