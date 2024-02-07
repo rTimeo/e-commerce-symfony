@@ -2,15 +2,19 @@
 
 namespace App\Classe;
 
+use App\Entity\Product;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 class Cart
 {
-    private RequestStack $requestStack;
+    private $requestStack;
+    private $entityManager;
  
-    public function __construct(RequestStack $requestStack)
+    public function __construct(EntityManagerInterface $entityManager, RequestStack $requestStack)
     {
         $this->requestStack = $requestStack;
+        $this->entityManager = $entityManager;
     }
 
     public function initSession()
@@ -31,6 +35,18 @@ class Cart
 
         $this->initSession()->set('cart', $cart);
     }
+    public function decrease($id)
+    {
+        $cart = $this->initSession()->get('cart', []);
+
+        if($cart[$id] > 1){
+            $cart[$id]--;
+        }else{
+            unset($cart[$id]);
+        }
+
+        $this->initSession()->set('cart', $cart);
+    }
 
     public function get(){
         return $this->initSession()->get('cart');
@@ -44,6 +60,27 @@ class Cart
         $cart = $this->initSession()->get('cart', []);
         unset($cart[$id]);
         return $this->initSession()->set('cart', $cart);
+    }
+
+    public function getFull()
+    {
+        $cartComplete = [];
+        
+        if ($this->get()) {
+            foreach ($this->get() as $id => $quantity) {
+                $product_objet = $this->entityManager->getRepository(Product::class)->findOneById($id);
+                if(!$product_objet){
+                    $this->delete($id);
+                    continue;
+                }
+                $cartComplete[] = [
+                    'product' => $product_objet,
+                    'quantity' => $quantity
+                ];
+            }
+    }
+        return $cartComplete;
+    
     }
 
 }
