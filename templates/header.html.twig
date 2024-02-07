@@ -7,11 +7,12 @@
         </div>
         <ul>    
         {% if app.user %}
-            <a class="nav-link" href="/inscription"><li>Mon compte</li></a>
-            <a class="nav-link" href="/inscription"><li>Déconnexion</li></a>
+            <li><a class="cart-btn" href="/mon-panier"><img src="{{ asset('assets/images/bag.png')}}" alt=""></a></li>
+            <li><a class="account-btn" href="/compte">Mon compte</a></li>
+            <li><a class="logout-btn" href="/deconnexion">Déconnexion</a></li>
         {% else %}
-            <a class="nav-link" href="/connexion"> <li>Se connecter</li></a>
-            <a class="nav-link" href="/inscription"> <li>S'inscrire</li></a>
+            <li><a class="login-btn" href="/connexion">Se connecter</a></li>
+            <li><a class="register-btn" href="/inscription">S'inscrire</a></li>
         {% endif %}
         </ul>
     </div>

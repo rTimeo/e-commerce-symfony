@@ -23,7 +23,15 @@
         <tr>
             <th><img src="/uploads/{{product.product.illustration}}" alt="" height="75px"></th>
             <td>{{product.product.name}}</td>
-            <td>{{product.quantity}}</td>
+            <td>
+              <a href="{{ path('decrease_to_cart', {'id' : product.product.id})}}">
+                <img src="{{ asset('assets/images/moins.png')}}" alt="" height="16px">  
+              </a>
+              {{product.quantity}}
+              <a href="{{ path('add_to_cart', {'id' : product.product.id})}}">
+                <img src="{{ asset('assets/images/plus.png')}}" alt="" height="16px">  
+              </a>
+            </td>
             <td>{{ (product.product.prix / 100)|number_format(2,',','.') }}</td>
             <td>{{((product.product.prix * product.quantity) / 100 ) | number_format(2,',','.')}}</td>
             <td> 
