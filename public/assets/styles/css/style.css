@@ -9,9 +9,7 @@
   font-size: 10px;
   overflow-x: hidden; /* Pour cacher la barre de défilement horizontale */
 }
-a{
-  text-decoration: none;
-}
+
 .header {
   width: 100vw;
 }
@@ -57,19 +55,30 @@ a{
   justify-content: center;
   align-items: center;
   gap: 10px;
+  margin: 0;
 }
-.header .f-header ul a {
-  border: 1px solid black;
-  border-radius: 5px;
-  color: black;
-}
-.header .f-header ul a li {
+.header .f-header ul li a {
+  padding: 8px 25px;
+  width: 100%;
   font-size: 1.4rem;
-  padding: 9px 18px;
+  display: block;
+  border-radius: 5px;
 }
-.header .f-header ul a:nth-child(2) {
-  background-color: black;
+.header .f-header ul li .cart-btn {
+  padding: 0;
+}
+.header .f-header ul li .cart-btn img {
+  width: 20px;
+  margin-bottom: 1px;
+}
+.header .f-header ul li .account-btn, .header .f-header ul li .login-btn {
+  color: black;
+  border: 1px solid black;
+}
+.header .f-header ul li .logout-btn, .header .f-header ul li .register-btn {
   color: white;
+  background-color: #222222;
+  border: 1px solid black;
 }
 
 .nav-category {
@@ -121,6 +130,9 @@ a{
   justify-content: center;
   align-items: center;
   height: 80vh;
+}
+.register-content .container {
+  max-width: 500px;
 }
 .register-content .container h1 {
   margin-bottom: 15px;
@@ -195,6 +207,9 @@ a{
   justify-content: center;
   align-items: center;
   height: 80vh;
+}
+.login-content .container {
+  max-width: 500px;
 }
 .login-content .container h1 {
   margin-bottom: 13px;

@@ -13,12 +13,11 @@
 //header
 
 .header{
-    width: 100vw;
+width: 100vw;
     .f-header{
         display: flex;
         justify-content: space-between;
         align-items: center;
-
         padding: 15px 20px;
         h1{
             a{
@@ -37,8 +36,6 @@
             border-radius: 5px;
             display: flex;
             align-items: center;
-
-
             input{
                 width: 100%;
                 border: none;
@@ -60,33 +57,37 @@
             justify-content: center;
             align-items: center;
             gap: 10px;
-            
-                a{
-                    
-                    
-                   
-                border: 1px solid black;
-                border-radius: 5px;
-                                color: black;
-                               
+            margin: 0;
+            li{
 
-                li{
-                    font-size: 1.4rem ;
-                    padding: 9px 18px;
+                a{
+                    padding: 8px 25px;
+                    width: 100%;
+                    font-size: 1.4rem;
+                    display: block;
+                    border-radius: 5px;
+                }
+                .cart-btn{
+                    padding: 0;
+                    img{
+                        width: 20px;
+                        margin-bottom: 1px;
+                    }
+                }
+                .account-btn, .login-btn{
+                    color: black;
+                    border: 1px solid black;
+                }
+                .logout-btn, .register-btn{
+                    color: white;
+                    background-color: #222222;
+                    border: 1px solid black;
 
                 }
-               &:nth-child(2){
-                    background-color: black;
-                    color: white;
-               }
-                    
-               
-
-                
             }
         }
-        }
     }
+}
 
 
     .nav-category{
@@ -156,7 +157,7 @@
     align-items: center;
     height: 80vh;
     .container{
-
+        max-width: 500px;
         h1{
             margin-bottom: 15px;
             font-size: 2.5rem;
@@ -240,6 +241,8 @@
     height: 80vh;
 
     .container{
+        max-width: 500px;
+
         h1{
             margin-bottom: 13px;
             font-size: 2.5rem;
